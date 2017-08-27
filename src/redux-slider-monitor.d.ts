@@ -2,7 +2,7 @@
 // Project: https://github.com/calesce/redux-slider-monitor
 // Definitions by: Atte Huhtakangas <https://github.com/jazmon>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.3
+// TypeScript Version: 2.4.2
 
 /// <reference types="react" />
 

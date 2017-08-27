@@ -10,20 +10,23 @@ import {
   routerMiddleware,
 } from 'react-router-redux';
 import history from 'constants/history';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const loggerMiddleware = createLogger();
 
-interface HotModule extends NodeModule {
+export interface HotModule extends NodeModule {
   hot: {
     accept: (path: string, callback: () => void) => void;
   };
 }
+const noop = (s: any) => s;
+const composer = process.env.REACT_APP_REDUX_DEVTOOLS_EXTENSION === 'true' ? composeWithDevTools : compose;
 
-const enhancer = compose(
+const enhancer = composer(
   // Middleware you want to use in development:
   applyMiddleware(thunk, routerMiddleware(history), loggerMiddleware),
   // autoRehydrate(),
-  DevTools.instrument(),
+  (process.env.REACT_APP_REDUX_DEVTOOLS_EXTENSION !== 'true') ? DevTools.instrument() : noop,
 );
 
 const configureStore = (initialState: Object = {}) => {
