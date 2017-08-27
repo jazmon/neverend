@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { injectGlobal } from 'styled-components';
+import RootProd from 'index.prod';
+import RootDev from 'index.dev';
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -13,8 +14,11 @@ injectGlobal`
   }
 `;
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
-);
+const Root =
+process.env.NODE_ENV !== 'development'
+  ? RootProd
+  : RootDev;
+
+ReactDOM.render(<Root />, document.getElementById('root') as HTMLElement);
+
 registerServiceWorker();

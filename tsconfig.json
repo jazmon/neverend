@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
+    "outDir": "build",
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
@@ -8,27 +8,31 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "src",
+    // "rootDir": "src",
     "strict": true,
-    "alwaysStrict": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+
     "noUnusedLocals": true,
-    "baseUrl": "src",
-    "typeRoots": ["node_modules/@types", "types"]
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    
+    "forceConsistentCasingInFileNames": true,
+    // "allowSyntheticDefaultImports": true,
+    // "suppressImplicitAnyIndexErrors": false,
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["*"]
+    },
+    "typeRoots": ["node_modules/@types", "../types"]
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts"
+  "include": [
+    "src",
+    "types"
   ]
 }

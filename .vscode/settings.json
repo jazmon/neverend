@@ -11,7 +11,8 @@
   "prettier.useTabs": false,
   "prettier.singleQuote": true,
   "tslint.exclude": "**/node_modules/**/*",
-  "tslint.autoFixOnSave": true,
+  // "tslint.autoFixOnSave": true,
   "prettier.tabWidth": 2,
-  "prettier.printWidth": 80
+  "prettier.printWidth": 80,
+  "editor.autoClosingBrackets": true
 }
