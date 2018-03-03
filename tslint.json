@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint-config-prettier", "tslint-react"],
+  "extends": ["tslint-react", "tslint-config-prettier"],
   "defaultSeverity": "warning",
   "rules": {
     "import-name": false,
@@ -46,7 +46,7 @@
       "timeEnd",
       "trace"
     ],
-    "no-consecutive-blank-lines": true,
+    // "no-consecutive-blank-lines": true,
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-variable": true,
@@ -67,7 +67,7 @@
     ],
     "quotemark": [true, "single", "jsx-double"],
     "radix": true,
-    "semicolon": [true, "always"],
+    // "semicolon": [true, "always"],
     "switch-default": true,
 
     "trailing-comma": [true, { "multiline": "always", "singleline": "never" }],

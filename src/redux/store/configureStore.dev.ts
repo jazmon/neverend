@@ -4,7 +4,8 @@ import { createLogger } from 'redux-logger';
 // import { install as installLoop } from 'redux-loop';
 // import { persistStore, autoRehydrate } from 'redux-persist';
 import thunk from 'redux-thunk';
-import rootReducer from 'redux/modules/index';
+import rootReducer from 'redux/modules';
+// import { reactReduxFirebase, firebaseStateReducer } from 'react-redux-firebase'
 import DevTools from 'DevTools';
 import {
   routerMiddleware,
@@ -19,7 +20,7 @@ export interface HotModule extends NodeModule {
     accept: (path: string, callback: () => void) => void;
   };
 }
-const noop = (s: any) => s;
+const noop = (s: {}) => s;
 const composer = process.env.REACT_APP_REDUX_DEVTOOLS_EXTENSION === 'true' ? composeWithDevTools : compose;
 
 const enhancer = composer(
@@ -38,8 +39,8 @@ const configureStore = (initialState: Object = {}) => {
   // });
 
   if ((module as HotModule).hot) {
-    (module as HotModule).hot.accept('../modules/index', () =>
-      store.replaceReducer(require('../modules/index').default),
+    (module as HotModule).hot.accept('../modules', () =>
+      store.replaceReducer(rootReducer),
     );
   }
 

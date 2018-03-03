@@ -8,7 +8,8 @@ import configureStore from 'redux/store/configureStore';
 import DevTools from 'DevTools';
 import { ConnectedRouter } from 'react-router-redux';
 import styled from 'styled-components';
-const logo = require('./logo.svg');
+import {Logo} from 'components';
+// const logo = require('./infinity.svg');
 import {
   // BrowserRouter as Router,
   Route,
@@ -30,9 +31,10 @@ const TopBar = styled.div`
 
 `;
 
-const Logo = styled.img`
-  height: 60px;
-`;
+// const Logo = styled.img`
+//   height: 60px;
+//   margin-left: 1em;
+// `;
 
 const Root = () =>
   <Provider store={store}>
@@ -40,7 +42,7 @@ const Root = () =>
       <ConnectedRouter history={history}>
         <Wrapper>
           <TopBar>
-            <Logo src={logo} />
+            <Logo />
           </TopBar>
           <div>
             <Route exact path="/" component={App} />
